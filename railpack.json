@@ -1,18 +1,7 @@
 {
-  "steps": {
-    "install": {
-      "cmds": [
-        "pnpm add -g node-gyp",
-        "pnpm install --no-frozen-lockfile --prefer-offline"
-      ]
-    },
-    "build": {
-      "cmds": [
-        "pnpm run build"
-      ]
-    }
-  },
-  "deploy": {
+  "options": {
+    "installCmd": "pnpm install --no-frozen-lockfile",
+    "buildCmd": "pnpm run build",
     "startCmd": "pnpm run start"
   }
 }
