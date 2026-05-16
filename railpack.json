@@ -1,7 +1,7 @@
 {
   "options": {
     "installCmd": "pnpm install --no-frozen-lockfile",
-    "buildCmd": "pnpm run build",
+    "buildCmd": "pnpm --filter @workspace/team-task-manager run build; pnpm --filter @workspace/api-server run build",
     "startCmd": "pnpm run start"
   }
 }
