@@ -4,10 +4,7 @@ import pinoHttp from "pino-http";
 import router from "./routes";
 import { logger } from "./lib/logger";
 import path from "path";
-import { fileURLToPath } from "url";
 import fs from "fs";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app: Express = express();
 
@@ -36,14 +33,17 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
-// Serve the React frontend in production
-const frontendDist = path.resolve(__dirname, "../../artifacts/team-task-manager/dist/public");
+// Serve the React frontend — path relative to project root (process.cwd())
+const frontendDist = path.join(process.cwd(), "artifacts", "team-task-manager", "dist", "public");
+logger.info({ frontendDist, exists: fs.existsSync(frontendDist) }, "Frontend dist path");
+
 if (fs.existsSync(frontendDist)) {
   app.use(express.static(frontendDist));
-  // SPA fallback — serve index.html for all non-API routes
   app.get("*", (_req, res) => {
     res.sendFile(path.join(frontendDist, "index.html"));
   });
+} else {
+  logger.warn({ frontendDist }, "Frontend dist not found, skipping static serving");
 }
 
 export default app;
