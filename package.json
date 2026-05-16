@@ -1,6 +1,6 @@
 {
   "name": "workspace",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "build": "node -e \"const {execSync}=require('child_process');execSync('pnpm --filter @workspace/team-task-manager run build',{stdio:'inherit'});execSync('pnpm --filter @workspace/api-server run build',{stdio:'inherit'});\"",
