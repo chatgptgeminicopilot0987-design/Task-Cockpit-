@@ -2,11 +2,6 @@
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
-  "packageManager": "pnpm@11.1.2",
-  "engines": {
-    "node": ">=22",
-    "pnpm": ">=11"
-  },
   "scripts": {
     "build": "pnpm --filter @workspace/api-server run build",
     "start": "node --enable-source-maps ./artifacts/api-server/dist/index.mjs",
