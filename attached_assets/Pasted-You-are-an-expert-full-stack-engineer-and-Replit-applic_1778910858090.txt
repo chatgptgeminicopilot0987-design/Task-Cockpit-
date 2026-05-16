@@ -1,0 +1,416 @@
+You are an expert full-stack engineer and Replit application builder.
+
+Build a complete, production-ready web application called:
+
+TEAM TASK MANAGER
+
+Create a fully functional project management application from scratch inside Replit. Build everything end-to-end including frontend, backend, database integration, APIs, authentication, role-based access control, dashboard, comments, and task management.
+
+Generate all folders, files, components, models, pages, routes, and logic automatically.
+
+The project must run correctly inside Replit without requiring major manual fixes.
+
+====================================================
+TECH STACK
+====================================================
+
+Frontend:
+- React 18 + Vite
+- React Router
+- Axios
+- TanStack Query
+- Plain CSS only (no Tailwind, Bootstrap, Material UI, or CSS frameworks)
+
+Backend:
+- Node.js
+- Express
+
+Database:
+- MongoDB Atlas
+
+ODM:
+- Mongoose
+
+Authentication:
+- JWT
+- bcrypt
+
+====================================================
+ENVIRONMENT VARIABLES
+====================================================
+
+Create:
+
+MONGODB_URI=
+JWT_SECRET=
+PORT=
+
+Create a proper .env.example file.
+
+====================================================
+PROJECT STRUCTURE
+====================================================
+
+client/
+    src/
+        api/
+        hooks/
+        context/
+        components/
+        pages/
+        utils/
+        styles/
+
+server/
+    config/
+    controllers/
+    middleware/
+    models/
+    routes/
+    utils/
+
+README.md
+.env.example
+
+====================================================
+DATABASE MODELS
+====================================================
+
+Create Mongoose models:
+
+User
+
+- name
+- email (unique)
+- password
+- role
+- createdAt
+
+Project
+
+- title
+- description
+- owner
+- members[]
+- createdAt
+
+Task
+
+- title
+- description
+- project
+- assignedTo
+- status
+- priority
+- dueDate
+- createdBy
+- createdAt
+- updatedAt
+
+Comment
+
+- body
+- task
+- author
+- createdAt
+
+Use ObjectId references.
+
+Use Mongoose populate() for relationships.
+
+====================================================
+AUTHENTICATION
+====================================================
+
+Implement:
+
+Signup
+
+Login
+
+Logout
+
+JWT authentication
+
+Password hashing using bcrypt
+
+Protected routes
+
+Persist authentication state
+
+Current user context
+
+Show logged-in username and role
+
+Roles:
+
+Admin
+Member
+
+====================================================
+ROLE BASED ACCESS CONTROL
+====================================================
+
+Admin permissions:
+
+- create project
+- edit project
+- delete project
+- add members
+- create tasks
+- assign tasks
+- edit tasks
+- delete tasks
+- view analytics
+
+Member permissions:
+
+- view assigned projects
+- view assigned tasks
+- update own task status
+- create comments
+
+Block unauthorized actions.
+
+Protect frontend and backend routes.
+
+====================================================
+PROJECT FEATURES
+====================================================
+
+Projects include:
+
+- title
+- description
+- owner
+- team members
+- created date
+- completion tracking
+
+====================================================
+TASK FEATURES
+====================================================
+
+Tasks include:
+
+- title
+- description
+- assigned user
+- project
+- status:
+
+Todo
+In Progress
+Completed
+
+- priority:
+
+Low
+Medium
+High
+
+- due date
+- overdue indicator
+
+====================================================
+COMMENTS
+====================================================
+
+Task detail page should include:
+
+- comment section
+- add comments
+- delete own comments
+- author initials avatar
+- timestamps
+- comment history
+
+Comment text cannot be empty.
+
+====================================================
+API ROUTES
+====================================================
+
+Auth:
+
+POST /api/auth/signup
+POST /api/auth/login
+GET /api/auth/me
+
+Projects:
+
+GET /api/projects
+POST /api/projects
+GET /api/projects/:id
+PUT /api/projects/:id
+DELETE /api/projects/:id
+
+POST /api/projects/:id/members
+
+Tasks:
+
+GET /api/projects/:id/tasks
+POST /api/projects/:id/tasks
+GET /api/tasks/:id
+PUT /api/tasks/:id
+DELETE /api/tasks/:id
+
+Comments:
+
+GET /api/tasks/:id/comments
+POST /api/tasks/:id/comments
+DELETE /api/comments/:id
+
+Dashboard:
+
+GET /api/dashboard
+
+====================================================
+VALIDATIONS
+====================================================
+
+Implement:
+
+- required field validation
+- email validation
+- unique email validation
+- due date cannot be in past
+- assigned users must belong to project
+- empty comments blocked
+- proper authorization checks
+- proper HTTP status codes
+- JSON error responses
+
+Example:
+
+{
+   "message":"Error message"
+}
+
+Handle errors gracefully.
+
+====================================================
+PAGES
+====================================================
+
+Create:
+
+Landing Page
+
+Login Page
+
+Signup Page
+
+Dashboard
+
+Projects Page
+
+Project Detail Page
+
+Task Detail Page
+
+My Tasks Page
+
+Unauthorized Page
+
+404 Page
+
+====================================================
+UI REQUIREMENTS
+====================================================
+
+Use plain CSS only.
+
+Design:
+
+- clean
+- modern
+- responsive
+- dashboard layout
+
+Build:
+
+Navbar
+
+Project cards
+
+Task cards
+
+Kanban board with:
+
+Todo
+In Progress
+Completed
+
+Task detail page
+
+Comment section
+
+Modals
+
+Badges
+
+Loading states
+
+Confirmation dialogs
+
+Empty states
+
+====================================================
+DASHBOARD
+====================================================
+
+Admin dashboard:
+
+- total projects
+- total users
+- total tasks
+- completed tasks
+- overdue tasks
+- completion percentage
+- task status chart
+- recent activity
+
+Member dashboard:
+
+- assigned projects
+- assigned tasks
+- progress summary
+
+====================================================
+SEED DATA
+====================================================
+
+Create demo users:
+
+Admin:
+
+admin@example.com
+Admin123!
+
+Member:
+
+member@example.com
+Member123!
+
+Generate demo projects and tasks.
+
+====================================================
+IMPORTANT
+====================================================
+
+Do not leave placeholder pages.
+
+Do not use frontend-only fake data.
+
+Connect frontend with backend APIs.
+
+All forms and buttons must work.
+
+Handle loading and error states.
+
+Write clean and understandable code.
+
+Ensure the app runs directly inside Replit.
+
+Build the complete working application now.
