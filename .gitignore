@@ -1,7 +1,4 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
 # compiled output
-dist
 tmp
 out-tsc
 *.tsbuildinfo
@@ -49,10 +46,13 @@ Thumbs.db
 .env.local
 .env.*.local
 node_modules/
-.env
-dist/
-build/
 .cache/
 .next/
 coverage/
 *.log
+
+# Keep dist for api-server (built by Railway)
+artifacts/api-server/dist/
+
+# Keep frontend dist committed for Railway deployment
+# artifacts/team-task-manager/dist/ is intentionally NOT ignored
